@@ -1,0 +1,798 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="meralco.master.cs" Inherits="meralcoTrial.meralco" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+   <link rel="shortcut icon" type="image/x-icon" href="IMG/Meralco.ico" />
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link type="text/css" rel="Stylesheet" href="CSS/masterCSS.css"/>
+    <link type="text/css" rel="Stylesheet" href="CSS/bootstrap.min.css"/> 
+    <link type="text/css" rel="Stylesheet" href="CSS/bootstrap-theme.min.css"/>
+
+    
+    
+   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+  <%-- <script type="text/javascript" src="JS/jquery-1.9.1.js"></script>--%>
+
+ 
+
+    <%-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCACGnZSwoMgc3ZESLX3SewAKBtHBrVzF4 "> </script>--%>
+     <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCACGnZSwoMgc3ZESLX3SewAKBtHBrVzF4&callback=initMap">
+    </script>
+     
+      <script type="text/javascript" src="JS/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        (function (d, s, id)
+        {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=884808504999147";
+        fjs.parentNode.insertBefore(js, fjs);
+        }
+        (document, 'script', 'facebook-jssdk'));</script>
+
+       <script type="text/javascript">
+           $.noConflict();
+       </script>
+  </head>
+<body>
+
+    <!-- Added facebook and twitter (Modified portion)-->
+    <!-- Code for Facebook Comment and Timeline display-->
+    <!--  One another div portion is written on model section at the end  of the code-->
+   
+    
+     <div id="fb-root"></div>
+
+
+    <!-- End of facebook code-->
+
+    <form id="form1" runat="server">
+        
+           
+
+
+
+
+    <%--Header NAvigation ( Home Facebook twitter Search )--%>
+        <div class="navbar-static-top col-lg-12" id="socialMediaBar" style="height:40px;"> 
+                
+            <div class="container col-lg-6" style="height:inherit;">
+                   <!--  <a href="index.aspx"><asp:ImageButton ID="meralcoLogo" runat="server" CssClass="btn pull-left" ImageUrl="~/IMG/Meralco.jpg" Height="40px" Width="80px"/></a> -->  
+                    <a href="index.aspx">
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/IMG/Meralco.jpg" CssClass="btn pull-left" Height="45px" Width="80px" /></a>
+                   
+                   <!-- <asp:ImageButton ID="iconFacebook" runat="server" ImageUrl="~/IMG/fb.png" OnClientClick="window.open('http://www.facebook.com/meralco');" ClientIDMode="Static" Height="30px" Width="40px" style="margin-top:5px"/>&nbsp;&nbsp;-->
+                   <!--<asp:ImageButton ID="iconTwitter" runat="server" ImageUrl="~/IMG/tw.jpg" OnClientClick="window.open('http://www.twitter.com/meralco');" ClientIDMode="Static" Height="30px" Width="40px" style="margin-top:5px" />&nbsp;&nbsp;-->
+                      
+                <a href="#" data-toggle="modal" data-target="#myModal"><asp:Image ID="Image11" runat="server" ImageUrl="~/IMG/tw.jpg" CssClass="btn pull-left" Height="40px" Width="60px" /></a>
+                <a href="#" data-toggle="modal" data-target="#myModal1"><asp:Image ID="Image4" runat="server" ImageUrl="~/IMG/fb.png" CssClass="btn pull-left" Height="40px" Width="60px" /></a>
+                <a href="#" data-toggle="modal" data-target="#myModal2" ><asp:Image ID="Image5" runat="server" ImageUrl="~/IMG/comment.jpg" CssClass="btn pull-left" Height="40px"  Width="60px" /></a>
+             
+                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/IMG/knowMe.PNG" OnClientClick="window.open('https://knome.ultimatix.net/communities/10456-meralco-ang-liwanag-ng-bukas');" ClientIDMode="Static" Height="30px" Width="65px" style="margin-top:5px" UseSubmitBehavior="false" />
+
+                 
+           </div> 
+
+                <div class="col-lg-6">
+                     <%--<asp:ImageButton ID="searchButton" runat="server" ImageUrl="~/IMG/iconSearch.png" 
+                        class="btn btn-default pull-right" Height="35px" Width="60px" style="margin-top:2px"/>
+                    <asp:TextBox ID="textSearch" runat="server" placeholder="SEARCH" CssClass="col-sm-3 pull-right" Height="35px" Width="125px" style="margin-top:2px"></asp:TextBox> --%>
+                    <div class="input-group pull-right" id="searchButton" style="margin-top:2px; width:180px">
+                        <input type="text" class="form-control" placeholder="Search for.."  style="margin-top:1px"/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default glyphicon glyphicon-search" type="button"></button>
+                            </span>
+                      <%--  <iframe src="https://duckduckgo.com/search.html?prefill=Search for...." class="pull-right" style="overflow:hidden;margin:0;padding:0;width:250px;height:35px;margin-top:0%;" frameborder="1"></iframe>--%>
+                    </div>
+                   
+                </div> 
+        </div>
+
+        <%--Meralco Title--%>
+        <div class="panel-collapse col-lg-12 " id="title">  
+           
+            <a href="index.aspx"><asp:Label ID="meralcoTitle" runat="server" Text="MERALCO" ForeColor="White" Font-Size="X-Large" Font-Bold="true" Height="40px"></asp:Label></a>
+            <asp:Label style="text-decoration:blink; margin-left:35%" ID="stormAlert" Text="Storm Hits Tommorrow at Tacloban" runat="server" ForeColor="Yellow" CssClass="text-center" Font-Size="Large" Font-Bold="true" Height="40px"></asp:Label>
+            
+        </div>
+
+        <%--Navigation Menu--%>
+        <div>
+            <ul class="nav nav-pills panel-collapse panel">
+                <li role="presentation"><a href="index.aspx">Home</a></li>
+                <li role="presentation"><a href="outageMap.aspx">Outage Map</a></li>
+                <li role="presentation"><a href="ReportOutage.aspx">Report Outage </a></li>
+                <li role="presentation"><a href="" data-toggle="modal" data-target="#restoreMilestone" id="showGraph">Restoration Milestone</a></li>
+                <li role="presentation"><a href="RepairPriorities.aspx">Repair Priorities</a></li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"> Safety First
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                              <li role="presentation"><a href="prepareOutages.aspx">Prepare For Outage</a></li>
+                              <li role="presentation"><a href="recoveryPlan.aspx">Recovery Plan</a></li>
+                   </ul>
+                </li>
+                
+
+                <li class="pull-right" style="margin-top:12px;margin-right:10px">    
+                <span class="glyphicon glyphicon-user" id="showSignInModal" runat="server" data-toggle="modal" data-target="#login"></span>
+                <span id="name" runat="server">SIGN IN</span>
+                </li>
+                <li class="pull-right">
+                 <div class="pull-right" style="margin-top:12px;margin-right:10px">              
+                        <asp:LinkButton ID="signOut" class="hidden btn btn-default"  runat="server" onclick="signOut_Click"><span class="glyphicon glyphicon-log-out"></span> SIGN OUT</asp:LinkButton>
+                 </div>
+                </li>
+            </ul>
+
+            <asp:HiddenField ID="HiddenField1" runat="server" />
+       
+         </div>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    
+    </asp:ContentPlaceHolder>
+
+
+  
+  <div class="pull-right">
+          <div class="modal focus fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="login">
+                    <div class="modal-dialog">
+                        <div id="signin" class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <asp:Image ID="mlogo" runat="server" ImageUrl="~/IMG/Meralco.jpg" CssClass="pull-left" Height="25px" Width="50px"/>
+                                <h4 class="modal-title" id="modalTitle">  Sign In</h4>
+                             </div>
+                            <div class="container" style="margin-left:150px">
+                            <form class="form-signin">
+                                 <br />
+                                  <label for="inputUsername" class="sr-only">Username </label>
+                                  <input type="text" id="username" runat="server" class="form-control" style="width:280px" placeholder="Username" required="true" autofocus="" />
+                                  <label for="inputPassword" class="sr-only">Password </label>
+                                  <input type="password" id="inputPassword" runat="server" class="form-control" style="width:280px" placeholder="Password" required="true" />
+                                  <div class="checkbox">
+                                    <label><input type="checkbox" value="remember-me" /> Remember me  </label>
+                                    <asp:HyperLink ID="register" runat="server" style="margin-left:50px">Register Yourself</asp:HyperLink>
+                                     
+                                  </div>
+                                 <%-- <button class="btn btn-primary btn-block" runat="server" id="signInButton" style="width:100px; margin-bottom:10px" type="submit" onclick="return signInButton_onclick()">Sign In</button>--%>
+                                 <asp:Button ID="btnSignIn" runat="server" Text="Sign In" 
+                                     CssClass="btn btn-primary" onclick="btnSignIn_Click"/>
+                                    <br/>
+                                    <br />
+                             </form>
+                            </div>
+                      
+
+                      </div>
+                        <div id="signup" class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <asp:Image ID="Image2" runat="server" ImageUrl="~/IMG/Meralco.jpg" CssClass="pull-left" Height="25px" Width="50px"/>
+                            <h4 class="modal-title" id="H1">  Sign Up</h4>
+                       </div>
+                        <div class="container" style="margin-left:150px">
+                            <form class="form-signin col-lg-6">
+                                 <br />
+                                  <label for="inputContactNo" class="sr-only">Contact No</label>
+                                  <input type="text" id="contactNo" class="form-control" style="width:280px"  placeholder="Contact No." required="true" autofocus="">
+                                  <%--<label for="inputMeterId" class="sr-only">Meter Id</label>
+                                  <input type="text" id="Text2" class="form-control" style="width:280px" placeholder="Meter Id (Optional)" required="true" autofocus="">--%>
+                                  <label for="inputPassword" class="sr-only">setPassword </label>
+                                  <input type="password" id="password1" class="form-control" style="width:280px" placeholder="Set Password" required="true">
+                                    <label for="inputPassword" class="sr-only">confirmPassword </label>
+                                  <input type="password" id="password2" class="form-control" style="width:280px" placeholder="Confirm Password" required="true">
+                                 
+                                  <button id="registerButton" runat="server" class="btn btn-primary btn-block" style="width:100px; margin-top:10px ; margin-bottom:10px" type="submit" UseSubmitBehavior="false" onclick="return registerButton_onclick()">Register</button>
+                           
+                           </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    <div class="modal fade" style="height:1000px" id="restoreMilestone" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <asp:Image ID="Image3" runat="server" ImageUrl="~/IMG/Meralco.jpg" CssClass="pull-left" Height="25px" Width="50px"/>                     
+                        <h4 class="modal-title" id="H2">  Restoration Milestone</h4>
+                      </div>
+
+                      <div class="modal-body">
+                      
+                      <div id="milestoneTable" class="col-lg-19">
+                      
+                      <br/>
+        <table class="table table-bordered table-hover table-striped">
+        <thead>
+        <tr style="background-color:#36648B;color:White">
+            <th>Province</th>
+            <th>Total Customers</th>
+            <th>At the height</th>
+            <th>Within 24 hours</th>
+            <th>Within 48 hours</th>
+            <th>Within 72 Hours</th>
+        </tr>
+        </thead>
+  <tbody>
+
+        <tr class="clickable info" data-toggle="collapse" id="1" data-target=".1collapsed" style="background-color:#F0F8FF" >
+            <td><span class="caret"></span>&nbsp; Pampanga </td>
+            <td>12,042</td>
+            <td>70%</td>
+            <td>10%</td>
+            <td>15%</td>
+            <td>5%</td>
+        </tr>
+              <tr class="collapse out budgets 1collapsed text-center" style="background-color:#F0F8FF" >
+            <td>
+                <asp:Label ID="Label1" runat="server" Text="Angeles City"></asp:Label></td>
+            <td>5020</td>
+            <td>100%</td>
+            <td>0%</td>
+            <td>0%</td>
+            <td>0%</td>
+        </tr>
+              <tr class="collapse out budgets 1collapsed text-center" style="background-color:#F0F8FF">
+            <td>Mabalacat</td>
+            <td>2522</td>
+            <td>50%</td>
+            <td>25%</td>
+            <td>20%</td>
+            <td>5%</td>
+        </tr>
+              <tr class="collapse out budgets 1collapsed text-center" style="background-color:#F0F8FF">
+            <td>San Fernando City</td>
+            <td>4500</td>
+            <td>60%</td>
+            <td>25%</td>
+            <td>25%</td>
+            <td>10%</td>
+        </tr>
+
+
+         <tr class="clickable info" id="2" data-toggle="collapse" data-target=".2collapsed" style="background-color:#F0F8FF">
+            <td><span class="caret"></span>&nbsp; Metro Manila</td>
+            <td>2,554,400</td>
+            <td>75%</td>
+            <td>15%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Manila</td>
+            <td>287698</td>
+            <td>84%</td>
+            <td>10%</td>
+            <td>6%</td>
+            <td>0%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Navotas</td>
+            <td>99650</td>
+            <td>75%</td>
+            <td>15%</td>
+            <td>5%</td>
+              <td>5%</td>
+         </tr>
+            <tr class="collapse out budgets 2collapsed  text-center" style="background-color:#F0F8FF">
+              <td>Las Piñas</td>
+              <td>117650</td>
+              <td>78%</td>
+              <td>20%</td>
+              <td>2%</td>
+              <td>0%</td>
+           </tr>
+            <tr class="collapse out budgets 2collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Malabon</td>
+              <td>45000</td>
+              <td>70%</td>
+              <td>17%</td>
+              <td>10%</td>
+              <td>3%</td>
+           </tr>
+            <tr class="collapse out budgets 2collapsed  text-center "style="background-color:#F0F8FF">
+            <td>Pateros</td>
+            <td>45485</td>
+            <td>80%</td>
+            <td>10%</td>
+            <td>7%</td>
+            <td>3%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Pasig</td>
+            <td>10110</td>
+            <td>60%</td>
+            <td>20%</td>
+            <td>5%</td>
+            <td>15%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Quezon City</td>
+            <td>126789</td>
+            <td>80%</td>
+            <td>5%</td>
+            <td>5%</td>
+            <td>10%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center" style="background-color:#F0F8FF">
+            <td>San Jua </td>
+             <td>99765</td>
+            <td>55%</td>
+            <td>20%</td>
+            <td>15%</td>
+            <td>10%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Kalookan City</td>
+             <td>217897</td>
+            <td>65%</td>
+            <td>5%</td>
+            <td>15%</td>
+            <td>15%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center"style="background-color:#F0F8FF" >
+            <td>Pasay</td>
+             <td>116574</td>
+            <td>45%</td>
+            <td>30%</td>
+            <td>20%</td>
+            <td>5%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Taguig</td>
+             <td>208105</td>
+            <td>85%</td>
+            <td>5%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Paranaque</td>
+             <td>105678</td>
+            <td>60%</td>
+            <td>15%</td>
+            <td>5%</td>
+             <td>20%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Muntinlupa</td>
+             <td>271111</td>
+            <td>50%</td>
+            <td>10%</td>
+            <td>20%</td>
+            <td>20%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center " style="background-color:#F0F8FF">
+            <td>Valenzula</td>
+             <td>98888</td>
+            <td>75%</td>
+            <td>20%</td>
+            <td>5%</td>
+            <td>0%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center"  style="background-color:#F0F8FF">
+            <td>Makati</td>
+             <td>128000</td>
+            <td>90%</td>
+            <td>10%</td>
+            <td>0%</td>
+            <td>0%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Mandaluyong</td>
+             <td>135000</td>
+            <td>70%</td>
+            <td>20%</td>
+            <td>10%</td>
+            <td>0%</td>
+        </tr>
+            <tr class="collapse out budgets 2collapsed text-center" style="background-color:#F0F8FF">
+            <td>Marikina</td>
+             <td>350000</td>
+            <td>100%</td>
+             <td>0%</td>
+             <td>0%</td>
+             <td>0%</td>
+        </tr>
+       
+
+
+
+       <tr class="clickable info" id="3" data-toggle="collapse" data-target=".3collapsed">
+            <td><span class="caret"></span>&nbsp; Bulacan</td>
+            <td>649747</td>
+            <td>85%</td>
+            <td>10%</td>
+            <td>5%</td>
+            <td>0%</td>
+        </tr>
+            <tr class="collapse out budgets 3collapsed text-center" style="background-color:#F0F8FF">
+            <td>Meycauayan city</td>
+            <td>525423</td>
+             <td>75%</td>
+            <td>10%</td>
+            <td>15%</td>
+            <td>0%</td>
+        </tr>
+            <tr class="collapse out budgets 3collapsed text-center" style="background-color:#F0F8FF">
+            <td>Malolos city</td>
+            <td>102112</td>
+             <td>85%</td>
+            <td>5%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+            <tr class="collapse out budgets 3collapsed text-center" style="background-color:#F0F8FF">
+            <td>San jose Del monte</td>
+            <td>22212</td>
+             <td>80%</td>
+            <td>10%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+        
+
+        <tr class="clickable info" id="4" data-toggle="collapse" data-target=".4collapsed">
+            <td><span class="caret"></span>&nbsp; Rizal</td>
+            <td>511,069</td>
+             <td>80%</td>
+            <td>10%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+            <tr class="collapse out budgets 4collapsed text-center" style="background-color:#F0F8FF">
+            <td>Antipolo</td>
+            <td>511,069</td>
+             <td>80%</td>
+            <td>10%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+             
+
+        <tr class="clickable info" id="5" data-toggle="collapse" data-target=".5collapsed">
+            <td><span class="caret"></span>&nbsp; Cavite</td>
+            <td>735926</td>
+            <td>80%</td>
+            <td>20%</td>
+            <td>0%</td>
+            <td>0%</td>
+        </tr>
+             <tr class="collapse out budgets 5collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Bacoor</td>
+            <td>423513</td>
+            <td>70%</td>
+            <td>20%</td>
+            <td>10%</td>
+            <td>0%</td>
+        </tr>
+             <tr class="collapse out budgets 5collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Cavite City</td>
+              <td>312413</td>
+            <td>85%</td>
+            <td>5%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+             <tr class="collapse out budgets 5collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Dasmarinas</td>
+            <td>201012</td>
+           <td>70%</td>
+            <td>20%</td>
+            <td>10%</td>
+            <td>0%</td>
+        </tr>
+             <tr class="collapse out budgets 5collapsed text-center " style="background-color:#F0F8FF">
+            <td>Imus</td>
+              <td>111401</td>
+            <td>80%</td>
+            <td>20%</td>
+            <td>0%</td>
+            <td>0%</td>
+        </tr>
+             <tr class="collapse out budgets 5collapsed text-center " style="background-color:#F0F8FF">
+            <td>Tagaytay</td>
+            <td>49005</td>
+             <td>90%</td>
+            <td>10%</td>
+            <td>0%</td>
+            <td>0%</td>
+        </tr>
+             <tr class="collapse out budgets 5collapsed text-center " style="background-color:#F0F8FF">
+            <td>Trece Maritires</td>
+             <td>62396</td>
+           <td>85%</td>
+            <td>5%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+
+        <tr class="clickable info" id="6" data-toggle="collapse" data-target=".6collapsed">
+            <td><span class="caret"></span>&nbsp; Laguna</td>
+             <td>586742</td>
+             <td>80%</td>
+            <td>10%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+             <tr class="collapse out budgets 6collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Birian</td>
+            <td>124521</td>
+            <td>70%</td>
+            <td>20%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+             <tr class="collapse out budgets 6collapsed text-center " style="background-color:#F0F8FF">
+            <td>Cabuyao</td>
+             <td>462221</td>
+            <td>100%</td>
+            <td>0%</td>
+            <td>0%</td>
+            <td>0%</td>
+        </tr>
+             <tr class="collapse out budgets 6collapsed  text-center" style="background-color:#F0F8FF">
+            <td>Birian</td>
+            <td>45602</td>
+            <td>60%</td>
+            <td>20%</td>
+            <td>15%</td>
+            <td>5%</td>
+        </tr>
+             <tr class="collapse out budgets 6collapsed text-center " style="background-color:#F0F8FF">
+            <td>Cabuyao</td>
+             <td>416619</td>
+            <td>90%</td>
+            <td>10%</td>
+            <td>0%</td>
+            <td>0%</td>
+        </tr>
+             <tr class="collapse out budgets 6collapsed text-center " style="background-color:#F0F8FF">
+            <td>Birian</td>
+            <td>211345</td>
+            <td>80%</td>
+            <td>10%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+             <tr class="collapse out budgets 6collapsed text-center " style="background-color:#F0F8FF">
+            <td>Cabuyao</td>
+             <td>205274</td>
+            <td>60%</td>
+            <td>30%</td>
+            <td>10%</td>
+            <td>0%</td>
+        </tr>
+
+
+        <tr class="clickable info" id="7" data-toggle="collapse" data-target=".7collapsed">
+            <td><span class="caret"></span>&nbsp; Quezon</td>
+             <td>170180</td>
+            <td>80%</td>
+            <td>10%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+             <tr class="collapse out budgets 7collapsed text-center " style="background-color:#F0F8FF">
+            <td>Tayabas</td>
+           <td>120075</td>
+            <td>80%</td>
+            <td>10%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+             <tr class="collapse out budgets 7collapsed text-center " style="background-color:#F0F8FF">
+            <td>Lucena</td>
+           <td>50105</td>
+            <td>70%</td>
+            <td>20%</td>
+            <td>5%</td>
+            <td>5%</td>
+        </tr>
+        
+        <tr class="clickable info" id="8" data-toggle="collapse" data-target=".8collapsed">
+            <td><span class="caret"></span>&nbsp; Batangas</td>
+             <td>105067</td>
+               <td>75%</td>
+            <td>15%</td>
+            <td>5%</td>
+              <td>5%</td>
+        </tr>
+             <tr class="collapse out budgets 8collapsed text-center " style="background-color:#F0F8FF">
+            <td>Batangs city</td>
+             <td>48600</td>
+              <td>95%</td>
+            <td>5%</td>
+            <td>0%</td>
+              <td>0%</td>
+        </tr>
+             <tr class="collapse out budgets 8collapsed text-center " style="background-color:#F0F8FF">
+            <td>Lipa city</td>
+             <td>36101</td>
+               <td>75%</td>
+            <td>15%</td>
+            <td>5%</td>
+              <td>5%</td>
+        </tr>
+             <tr class="collapse out budgets 8collapsed text-center " style="background-color:#F0F8FF">
+            <td>Tanauan city</td>
+            <td>20366</td>
+            <td>85%</td>
+            <td>15%</td>
+            <td>0%</td>
+            <td>0%</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+        </div>
+    </div>
+</div>
+
+    </div>
+        <!-- Modal for Twitter -->
+        <!-- Modal -->
+   <!-- Modal -->
+  <div class="modal fade focus " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+   <div class="modal-dialog" style="height:50%;width:45%;margin-bottom:auto;">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div>
+                         <asp:Image ID="Image8" runat="server" ImageUrl="~/IMG/Meralco.ico" CssClass="pull-left" Height="25px" Width="50px"/>                     
+                        <h4> Meralco Tweets </h4>
+                      </div>
+        </div>
+        <div class="modal-body">
+            <a class="twitter-timeline" href="https://twitter.com/SolutionUtility" data-widget-id="717327869014200320">Tweets by @SolutionUtility</a>
+            <script type="text/javascript">
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+             </script>
+       </div>
+        <div class="modal-footer">
+           <div class="slider-nav col-lg-12 pull-right" style="margin-top:inherit; margin-right:9%;" >
+                             
+               <div>
+                   <a href="https://twitter.com/SolutionUtility" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Follow @SolutionUtility</a>
+<script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+</script>
+                  
+               <a href="https://twitter.com/share" class="twitter-share-button" data-via="SolutionUtility" data-size="large" data-dnt="true">Tweet</a>
+<script type="text/javascript">!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+</script>
+
+               </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    </div>
+
+  
+        <!--Modal for twitter ends --->
+
+
+<!-- Modal for facebook -->
+        <!-- Modal -->
+  <div class="modal fade focus " id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+ 
+       
+    <div class="modal-dialog" style="height:50%; width:45%; margin-bottom:auto;">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div>
+            <asp:Image ID="Image6" runat="server" ImageUrl="~/img/Meralco.ico" CssClass="pull-left" Height="25px" Width="50px"/>                     
+            <h4> Meralco Facebook </h4>                 
+        </div>
+        
+      </div>
+
+      <div class="modal-body">   
+            <div class="slide">
+            </div>
+            <div class="fb-page" data-href="https://www.facebook.com/Utility-Solution-453910681461464/?ref=hl" data-tabs="timeline" data-width="600" data-height="400" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false">
+            </div>
+       </div>
+      
+       <div class="modal-footer">
+              <div class="slider-nav col-lg-12 pull-right" style="margin-top:inherit; margin-right:9%;" >
+                    <div class="fb-like" data-href="https://www.facebook.com/Utility-Solution-453910681461464/?ref=hl" data-width="400" data-layout="button" data-action="like" data-show-faces="false" data-share="true">
+                    </div>
+                    <div class="fb-send" data-href="https://www.facebook.com/Utility-Solution-453910681461464/?ref=hl">
+                    </div>
+                    <div class="fb-follow" data-href="https://www.facebook.com/Utility-Solution-453910681461464/?ref=hl" data-width="500" data-height="80" data-layout="button" data-show-faces="false">
+                    </div>
+              </div>
+
+        </div>
+                     
+      </div>
+      
+    </div>
+  </div>
+  
+
+
+<!-- Modal for Facebook ends here  -->
+       <!--Modal for Facebook Comments -->
+        <!-- Modal for Twitter -->
+        <!-- Modal -->
+   <!-- Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <div >
+                         <asp:Image ID="Image7" runat="server" ImageUrl="~/img/Meralco.ico" CssClass="pull-left" Height="25px" Width="50px"/>                     
+                        <h4> Meralco Facebook Comments </h4>
+                      </div>
+        </div>
+        <div class="modal-body">
+            <div class="fb-comments" data-href="https://www.facebook.com/Utility-Solution-453910681461464/?ref=settings" data-numposts="5">
+            </div>
+
+        </div>
+        <div class="modal-footer">
+        </div>
+        </div>
+      </div> 
+    </div>
+  
+ 
+
+
+
+        <!--Modal for Facebook comments ends Here-->
+
+   </form>
+    
+
+
+ <%--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script> --%>
+
+
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
+
+
+    <script type="text/javascript" src="JS/masterJS.js"></script>
+    <script type="text/javascript" src="JS/RestorMilestoneJS.js"></script>
+
+    
+   
+
+</body>
+</html>

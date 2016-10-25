@@ -1,0 +1,12 @@
+C:\Users\1252805\Desktop\CustomerStormSolution\meralcoTrial\bin\meralcoTrial.dll.config
+C:\Users\1252805\Desktop\CustomerStormSolution\meralcoTrial\bin\meralcoTrial.dll
+C:\Users\1252805\Desktop\CustomerStormSolution\meralcoTrial\bin\meralcoTrial.pdb
+C:\Users\1252805\Desktop\CustomerStormSolution\meralcoTrial\obj\Debug\customerstormsolution.csprojResolveAssemblyReference.cache
+C:\Users\1252805\Desktop\CustomerStormSolution\meralcoTrial\obj\Debug\meralcoTrial.dll
+C:\Users\1252805\Desktop\CustomerStormSolution\meralcoTrial\obj\Debug\meralcoTrial.pdb
+C:\TCS-Chirag\Chirag\Storm Solution\StormManagementCustomerSolution\CustomerStormSolution\CustomerStormSolution\meralcoTrial\bin\meralcoTrial.dll.config
+C:\TCS-Chirag\Chirag\Storm Solution\StormManagementCustomerSolution\CustomerStormSolution\CustomerStormSolution\meralcoTrial\bin\meralcoTrial.dll
+C:\TCS-Chirag\Chirag\Storm Solution\StormManagementCustomerSolution\CustomerStormSolution\CustomerStormSolution\meralcoTrial\bin\meralcoTrial.pdb
+C:\TCS-Chirag\Chirag\Storm Solution\StormManagementCustomerSolution\CustomerStormSolution\CustomerStormSolution\meralcoTrial\obj\Debug\customerstormsolution.csprojResolveAssemblyReference.cache
+C:\TCS-Chirag\Chirag\Storm Solution\StormManagementCustomerSolution\CustomerStormSolution\CustomerStormSolution\meralcoTrial\obj\Debug\meralcoTrial.dll
+C:\TCS-Chirag\Chirag\Storm Solution\StormManagementCustomerSolution\CustomerStormSolution\CustomerStormSolution\meralcoTrial\obj\Debug\meralcoTrial.pdb
