@@ -1,0 +1,79 @@
+﻿#socialMediaBar
+{
+    background-color:White;
+}
+
+#title
+{
+    height: 60px;
+    background-color:#08c; 
+}
+#meralcoTitle
+{
+    margin-top : 10px;
+    margin-left: 10px;
+    
+}
+
+.slider {
+  position: relative;
+  height: 470px;
+  border-bottom: 1px solid #ddd;
+}
+
+.inactive
+{
+   disabled : true;
+}
+
+.slide  
+{
+ display:none;
+  position:absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width:100%;
+}
+
+.active-slide {
+    display:block;
+}
+
+
+.slider-nav {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.arrow-prev {
+  margin-right: 45px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 9px;
+}
+
+.arrow-next {
+  margin-left: 45px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 9px;
+}
+
+.slider-dots {
+  list-style: none;
+  display: inline-block;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.slider-dots li {
+  color: #bbbcbc;
+  display: inline-block;
+  font-size: 30px;
+  margin-right: 5px;
+}
+
+.slider-dots li.active-dot {
+  color: #363636;
+}
