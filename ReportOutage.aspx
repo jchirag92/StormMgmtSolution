@@ -10,7 +10,7 @@
 <link rel="Stylesheet" type="text/css" href="CSS/reportOutageCSS.css" />
 
     <%--<asp:Label ID="Label1" runat="server"></asp:Label>--%>
-
+    
 <div id="reportOutage" class="col-lg-7">
     <div class="col-xs-6" id="electricServices">
     <div class="panel panel-primary">
@@ -241,10 +241,11 @@
                     
                   $("#submitReport1").click(function () {
                       $.get("https://api-mapper.clicksend.com/http/v2/send.php?method=http&username=aditya0007&key=48D19352-6F7A-EA55-6D57-43A0DAE2B453&to=" + $('#contactNo').val() + "&message=Hello%20" + $("#username").val() + ",%20Your%20outage%20is%20reported%20successfully.%20Track%20Id%20:%20TRACK00"+ tracknumber + "%20ETR%20:%20" + etr + "%20mins%20Thank%20You." );
-                      
+                  
                   });
                 $("#submitReport2").click(function () {
                     $.get("https://api-mapper.clicksend.com/http/v2/send.php?method=http&username=aditya0007&key=48D19352-6F7A-EA55-6D57-43A0DAE2B453&to=" + $('#OcontactNo').val() + "&message=Hello%20" + $("#Ousername").val() + ",%20Your%20outage%20is%20reported%20successfully.%20Track%20Id%20:%20TRACK00" + tracknumber + "ETR%20:%20" + etr + "%20Thank%20You.");
+            
                  });
               </script>   
 
